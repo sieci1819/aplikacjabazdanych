@@ -38,7 +38,7 @@
 			<div style="text-align: center; color:white;"id="wyloguj"><a style="text-align: center; color:white;" href="logout.php">Wyloguj się!</a></div>
 			<div style="text-align: center; color:white; font-size: 20px;padding-top: 40px;">Panel administracyjny</div>
 			<div style="text-align: center; color:white; font-size: 20px;padding-top: 10px;padding-bottom: 10px;">Lista niezweryfikowanych użytkowników:</div>
-			<div id="lista">
+			<div style="align:center;" id="lista">
 			<?php
 			require_once "connect.php";
 			$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -53,13 +53,19 @@
 				sprintf("SELECT user FROM uzytkownicy WHERE verify='0'"));
 				if($rezultat->num_rows > 0)
 				{
-					echo "<table cellpadding=\"2\" border=1>";
+					echo "<table cellpadding=\"2\" border=1 align:center;>";
+					
+					echo "<tr>";
+					echo "<td style='color:white;'>Login: </td>";
+					echo "</tr>";
 					while($row = $rezultat->fetch_assoc())
 					{
-						
+						echo "<tr>";
 						echo "<td>".$row["user"]."</td>";
+						echo "</tr>";
 					}
-					echo "</table>";
+				
+						echo "</table>";
 				}
 				else 
 				{
