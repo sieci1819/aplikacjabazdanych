@@ -57,7 +57,7 @@
 			else
 			{
 				
-				//Czy nick jest już zarezerwowany?
+				
 				$rezultat = $polaczenie->query("SELECT id FROM uzytkownicy WHERE user='$login'");
 				
 				if (!$rezultat) throw new Exception($polaczenie->error);
@@ -66,7 +66,7 @@
 				if($ile_takich_nickow>0)
 				{
 					$wszystko_OK=false;
-					$_SESSION['e_nick']="Istnieje już gracz o takim nicku! Wybierz inny.";
+					$_SESSION['e_nick']="Istnieje już użytkownik o takim loginie! Wybierz inny.";
 				}
 				
 				if ($wszystko_OK==true)

@@ -75,7 +75,7 @@
 				<input type="submit" value="Zarejestruj się" />
 			</div>
 			<div id="button_rej">
-				<a href="index.php" id="button_rej_text">Zaloguj się jeżeli już posiadasz konto!</a>
+				<a style="text-align: center; color:white;" href="index.php" id="button_rej_text">Zaloguj się jeżeli już posiadasz konto!<br><br></a>
 			</div>
 			<div class="error">
 			<?php

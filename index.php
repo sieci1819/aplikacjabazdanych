@@ -25,6 +25,7 @@
 	<title>Aplikacja baz danych</title>
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<script src="timer.js"></script>
+	
 </head>
 
 <body onload="odliczanie();">
@@ -46,14 +47,15 @@
 				<input type="submit" value="Zaloguj się" />
 			</div>
 			<div id="button_rej">
-				<a href="rejestracja_form.php" id="button_rej_text">Zarejestruj się jeżeli nie masz konta!</a>
+				<a style="text-align: center; color:white;" href="rejestracja_form.php" id="button_rej_text; padding-bottom: 10px;">Zarejestruj się jeżeli nie masz konta!</a><br><br>
 			</div>
 			<div class="error">
 			<?php
 			
 			if(isset($_SESSION['udanarejestracja'])&&($_SESSION['udanarejestracja']==true))
 			{
-				echo "Dziękujemy za rejestrację! Żeby się zalogować musisz poczekać na weryfikację konta przez administratora!";	
+				echo "<div align='center'; height:10px>Dziękujemy za rejestrację!</div>";
+                echo "<div align='center'; height:10px>Żeby się zalogować musisz poczekać na weryfikację konta przez administratora!</div>";	
 			}
 
 			//Usuwanie zmiennych pamiętających wartości wpisane do formularza

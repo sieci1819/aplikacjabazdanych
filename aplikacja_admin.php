@@ -35,9 +35,9 @@
 		</div>
 		
 		<div id="content">
-			<div id="wyloguj"><a href="logout.php">Wyloguj się!</a></div>
-			<div style="text-align: center; color:red; font-size: 30px;">Panel administracyjny</div>
-			<div style="text-align: center; color:red; font-size: 30px;padding-top:20px;">Lista niezweryfikowanych użytkowników:</div>
+			<div style="text-align: center; color:white;"id="wyloguj"><a style="text-align: center; color:white;" href="logout.php">Wyloguj się!</a></div>
+			<div style="text-align: center; color:white; font-size: 20px;padding-top: 40px;">Panel administracyjny</div>
+			<div style="text-align: center; color:white; font-size: 20px;padding-top: 10px;padding-bottom: 10px;">Lista niezweryfikowanych użytkowników:</div>
 			<div id="lista">
 			<?php
 			require_once "connect.php";
@@ -53,15 +53,17 @@
 				sprintf("SELECT user FROM uzytkownicy WHERE verify='0'"));
 				if($rezultat->num_rows > 0)
 				{
+					echo "<table cellpadding=\"2\" border=1>";
 					while($row = $rezultat->fetch_assoc())
 					{
-						echo $row["user"]."<br>";
-
+						
+						echo "<td>".$row["user"]."</td>";
 					}
+					echo "</table>";
 				}
-				else
+				else 
 				{
-					echo "Brak niezweryfikowanych użytkowników";
+					echo "<div>Brak niezweryfikowanych użytkowników</div>";
 				}
 				$rezultat->free_result();
 			} 
@@ -70,8 +72,8 @@
 			?>		
 			</div>
 				<form action="weryfikacja.php" name="weryfikacja" method="post">
-					Podaj login użytkownika do zweryfikowania: <input type="text" name="verify_login">
-					<input type="submit" value="Zweryfikuj" />
+					<div style="text-align: center; color:white; font-size: 20px;padding-top: 10px;">Podaj login użytkownika do zweryfikowania: <br><br><input type="text" name="verify_login">
+                        <input type="submit" value="Zweryfikuj" /></div>
 				</form>
 			<div class="error">
 			<?php

@@ -43,7 +43,7 @@
 					
 					
 					$wiersz = $rezultat->fetch_assoc();
-					$_SESSION['id'] = $wiersz['id'];
+					$_SESSION['show_db']=1;
 					$_SESSION['user'] = $wiersz['user'];
 					$_SESSION['haslo'] = $wiersz['pass'];
 					//
@@ -55,7 +55,7 @@
 				}
 			} else {
 				
-				$_SESSION['blad'] = '<div style="text-align: center; color:red; font-size: 30px;">Brak użytkownika w bazie lub użytkownik niezweryfikowany!</div>';
+				$_SESSION['blad'] = '<div class="error">Brak użytkownika w bazie lub użytkownik niezweryfikowany!</div>';
 				
 				header('Location: index.php');
 				

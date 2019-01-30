@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 23 Sty 2019, 20:49
+-- Czas generowania: 30 Sty 2019, 01:50
 -- Wersja serwera: 10.1.36-MariaDB
 -- Wersja PHP: 7.2.11
 
@@ -40,7 +40,16 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`id`, `user`, `pass`, `verify`) VALUES
-(1, 'admin', 'admin', b'1');
+(1, 'admin', 'admin', b'1'),
+(2, 'adam', 'adam', b'1'),
+(3, 'ewa', 'ewa', b'1'),
+(4, 'kasia', 'kasia', b'1'),
+(5, 'anna', 'anna', b'1'),
+(6, 'karol', 'karol', b'1'),
+(7, 'robert', 'robert', b'1'),
+(8, 'mateusz', 'mateusz', b'0'),
+(9, 'michal', 'michal', b'0'),
+(10, 'arek', 'arek', b'0');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -60,7 +69,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

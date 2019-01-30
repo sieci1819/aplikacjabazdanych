@@ -1,14 +1,15 @@
 body
 {
-	background-color: #303030;
+	background-color: #1a2231;
 	color: #ffffff;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif, roboto;
 	font-size: 20px;
 }
 
 #container
 {
 	width: 1030px;
+	height: 720px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -32,60 +33,71 @@ body
 
 #zegar
 {
+color:#2a3b58;
 	width: 1030px;
-	font-size: 50px;
+	font-size: 25px;
 	margin-left: auto;
 	margin-right: auto;
 }
 #content
 {
-	height:500px;
-	background-color: #666666;
+width:400px;
+	height:420px;
+	background-color: #2a3b58;
 	margin-left: auto;
 	margin-right: auto;
 }
 #logowanie
 {
-	color: red;
-	font-size:40px;
+	color: white;
+	font-size:30px;
 	text-align: center;
 	padding: 40px 40px;
-	background-color:blue;
+	background-color: #1a2231;
 }
 #wyloguj
 {
-	color: blue;
-	text-align:right;
-	font-size:40px;
+	color: white;
+	text-align: center;
+	font-size:30px;
 	padding: 40px 40px;
-	background-color:#0099FF;
+	background-color:#1a2231;
 }
 #formularz
 {
+color: #788f8a;
 	text-align: center;
 	padding: 50px 50px;
+	border: 2px solid black;
 }
-#button_rej
+#button_rej_text 
 {
-	
-	color: white;
-	text-align: center;
-	padding-bottom: 50px;
+	color: #1a2231;
+	padding: 20px 10px;
 }
 
-#button_rej_text:hover
-{
-	color: red;
-}
-#lista
-{
-	color: black;
-	padding: 20px 20px;
-	text-align: center;
-}
 .error
 {
 	text-align: center; 
 	color:red; 
-	padding:20px 20px;
+	padding:20px 10px;
 }
+#lista
+{
+	color: black;
+	padding-top: 20px 20px;
+	text-align: center;
+	margin: auto;
+}
+#button_rej
+{
+	color: white;
+	text-align: center;
+	padding-top: 40px;
+	background-color:#1a2231;
+	background-image: url(img/button1.jpg);
+}
+
+
+
+
