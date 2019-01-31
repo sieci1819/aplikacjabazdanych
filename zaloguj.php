@@ -46,22 +46,46 @@
 					$_SESSION['show_db']=1;
 					$_SESSION['user'] = $wiersz['user'];
 					$_SESSION['haslo'] = $wiersz['pass'];
-					//
 					
-					//
 					unset($_SESSION['blad']);
 					$rezultat->free_result();
 					header('Location: aplikacja.php');
 				}
-			} else {
+			} 
+			else {
 				
-				$_SESSION['blad'] = '<div class="error">Brak użytkownika w bazie lub użytkownik niezweryfikowany!</div>';
-				
-				header('Location: index.php');
-				
+						if($rezultat = @$polaczenie->query(
+						sprintf("SELECT * FROM uzytkownicy WHERE user='%s'",
+						mysqli_real_escape_string($polaczenie,$login)))	)
+						$ilu_userow = $rezultat->num_rows;
+						if($ilu_userow>0)
+						{
+							
+							$rezultat = @$polaczenie->query(
+							sprintf("SELECT * FROM uzytkownicy WHERE user='%s' AND pass='%s'",
+							mysqli_real_escape_string($polaczenie,$haslo),
+							mysqli_real_escape_string($polaczenie,$login)));
+							$ilu_userow = $rezultat->num_rows;
+							if($ilu_userow>0)
+							{
+								$_SESSION['e_verify']="Poczekaj na weryfikację konta";
+								
+							}
+							else{
+								$_SESSION['e_haslo']="Błędne hasło!";
+							}
+						}
+						else{
+							$_SESSION['e_login']="Błędny login!";
+						}
+						
+						
 			}
 			
 		}
+		
+		header('Location: index.php');
+		
 		
 		$polaczenie->close();
 	}

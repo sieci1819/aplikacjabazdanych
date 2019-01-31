@@ -40,34 +40,34 @@
 		
 
 		<div id="content">
-			<div id="wyloguj"><a href="logout.php">Wyloguj się!</a></div>
-			<div >
-				<form action="query.php" method="post">
-						id: <input type="text" name="id">
-						Imię: <input type="text" name="imie">
-						Nazwisko: <input type="text" name="nazwisko">
-						Płeć: <input type="text" name="plec">
-						Wiek: <input type="text" name="wiek">
-						Waga: <input type="text" name="waga">
-						Wzrost <input type="text" name="wzrost">
-						Kolor oczu: <input type="text" name="kolor_oczu">
+			<div id="wyloguj"><a style="text-align: center; color:white;" href="logout.php">Wyloguj się!</a></div>
+			<div class="forms-place">
+			<form action="query.php" method="post" id="main-form">
+						<span class="span-form"><label>id: </label><input class="align" type="text" name="id"></span>
+						<span class="span-form"><label>Imię: </label><input class="align" type="text" name="imie"></span>
+						<span class="span-form"><label>Nazwisko: </label><input class="align" type="text" name="nazwisko"></span>
+						<span class="span-form"><label>Płeć: </label><input class="align" type="text" name="plec"></span>
+						<span class="span-form"><label>Wiek: </label><input class="align" type="text" name="wiek"></span>
+						<span class="span-form"><label>Waga: </label><input class="align" type="text" name="waga"></span>
+						<span class="span-form"><label>Wzrost </label><input class="align" type="text" name="wzrost"></span>
+						<span class="span-form"><label>Kolor oczu: </label><input class="align" type="text" name="kolor_oczu"></span>
+						<span class="span-form"><label>Kolor włosów: </label><input class="align" type="text" name="kolor_wlosow"></span>
+						<span class="span-form"><label>Miasto: </label><input class="align" type="text" name="miasto"></span>
+						<span class="span-form"><label>Kraj: </label><input class="align" type="text" name="kraj"></span>
+						<span class="span-form"><label>Zarobki: </label><input class="align" type="text" name="zarobki"></span>
+						<span class="span-form"><label>Marka auta: </label><input class="align" type="text" name="marka_auta"></span>
+						<span class="span-form"><label>Typ auta: </label><input class="align" type="text" name="typ_auta"></span>
+						<span class="span-form"><label>Silnik: </label><input class="align" type="text" name="silnik"></span>
 					
-					
-						Kolor włosów: <input type="text" name="kolor_wlosow">
-						Miasto:<input type="text" name="miasto">
-						Kraj: <input type="text" name="kraj">
-						Zarobki: <input type="text" name="zarobki">
-						Marka auta:<input type="text" name="marka_auta">
-						Typ auta:<input type="text" name="typ_auta">
-						Silnik: <input type="text" name="silnik">
-				<input type="submit" value="Wyszukaj w bazie"/>
-				</form>
-				<form action="show_db.php" method="post">
-				<input type="submit" value="Wyświetl całą bazę">
-				</form>
+						<input class="submit" type="submit" value="Wyszukaj w bazie"/>
+			</form>
+			<form action="show_db.php" method="post" id="show-db-action">
+				<input class="submit" type="submit" value="Wyświetl całą bazę">
+			</form>
 			</div>
-			</br></br>
-			<div>
+			
+			
+			<div style="overflow-x:auto; font-size: smaller;">
 				<?php
 				require_once "connect2.php";
 				$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -85,7 +85,7 @@
 					
 					if($rezultat->num_rows > 0)
 					{
-						echo "<table cellpadding=\"2\" border=1>";
+						echo "<table cellpadding=\"2\" border=1 style=\"margin: 0 auto; \">";
 						echo "<tr>";
 							echo "<td>id</td>";
 							echo "<td>Imię</td>";
@@ -101,7 +101,7 @@
 							echo "<td>Zarobki</td>";
 							echo "<td>Marka auta</td>";
 							echo "<td>Typ silnika</td>";
-							echo "<td>Silniek</td>";
+							echo "<td>Silnik</td>";
 							echo "</tr>";
 						while($r = $rezultat->fetch_assoc()) {
 							echo "<tr>";
@@ -146,57 +146,58 @@
 						if(isset($_SESSION['zarobki']))$zarobki = $_SESSION['zarobki'];
 						if(isset($_SESSION['marka_auta']))$marka_auta = $_SESSION['marka_auta'];
 						if(isset($_SESSION['typ_auta']))$typ_auta = $_SESSION['typ_auta'];
-						if(isset($_SESSION['silnik']))$silnik = $_SESSION['silnik'];
+						if(isset($_SESSION['silnik'])) $silnik = $_SESSION['silnik'];
 						
 						$wh = array();
 						if(isset($id) && $id!="") 
 						{
 						   $wh[] = 'id = '.'"'.$id.'"'; 
-						   }
-						if (isset($imie) &&$imie!="") 
+						  }
+						if(isset($imie) &&$imie!="") 
 						{
 							$wh[] = 'Imie = '.'"'.$imie.'"'; 
 						   }
-						if (isset($nazwisko) &&$nazwisko!="")
+						if(isset($nazwisko) &&$nazwisko!="")
 						{
 						   $wh[] = 'Nazwisko = '.'"'.$nazwisko.'"'; 
 						   }
-						   if (isset($plec) &&$plec!="")
+						   if(isset($plec) &&$plec!="")
 						{
 						   $wh[] = 'Plec = '.'"'.$plec.'"'; 
-						   }if (isset($wiek) &&$wiek!="")
+						   }if(isset($wiek) &&$wiek!="")
 						{
 						   $wh[] = 'Wiek = '.'"'.$wiek.'"'; 
-						   }if (isset($waga) &&$waga!="")
+						   }if(isset($waga) &&$waga!="")
 						{
 						   $wh[] = 'Waga = '.'"'.$waga.'"'; 
-						   }if (isset($wzrost) &&$wzrost!="")
+						   }if(isset($wzrost) &&$wzrost!="")
 						{
 						   $wh[] = 'Wzrost = '.'"'.$wzrost.'"'; 
-						   }if (isset($kolor_oczu) &&$kolor_oczu!="")
+						   }if(isset($kolor_oczu) &&$kolor_oczu!="")
 						{
 						   $wh[] = 'Kolor_oczu = '.'"'.$kolor_oczu.'"'; 
-						   }if (isset($kolor_wlosow) &&$kolor_wlosow!="")
+						   }if(isset($kolor_wlosow) &&$kolor_wlosow!="")
 						{
 						   $wh[] = 'Kolor_wlosow = '.'"'.$kolor_wlosow.'"'; 
-						   }if (isset($miasto) &&$miasto!="")
+						   }if(isset($miasto) &&$miasto!="")
 						{
 						   $wh[] = 'Miasto = '.'"'.$miasto.'"'; 
-						   }if (isset($kraj) &&$kraj!="")
+						   }if(isset($kraj) &&$kraj!="")
 						{
 						   $wh[] = 'Kraj = '.'"'.$kraj.'"'; 
-						   }if (isset($zarobki) &&$zarobki!="")
+						   }if(isset($zarobki) &&$zarobki!="")
 						{
 						   $wh[] = 'Zarobki = '.'"'.$zarobki.'"'; 
-						   }if (isset($marka_auta) &&$marka_auta!="")
+						   }if(isset($marka_auta) &&$marka_auta!="")
 						{
 						   $wh[] = 'Marka_auta = '.'"'.$marka_auta.'"'; 
-						   }if (isset($typ_auta) &&$typ_auta!="")
+						   }if(isset($typ_auta) &&$typ_auta!="")
 						{
 						   $wh[] = 'Typ_auta = '.'"'.$typ_auta.'"'; 
-						   }if (isset($silnik) &&$silnik!="")
+						   }
+						   if(isset($silnik) &&$silnik!="")
 						{
-						   $wh[] = 'Silnik = '.'"'.$silnik.'"'; 
+						   $wh[] = 'Silnik = '.'"'.$silnik.'"';
 						   }
 					
 					  
@@ -205,7 +206,7 @@
 						if (!empty($wh)) 
 						{
 						   $where = 'WHERE '.implode(' and ', $wh);
-						   $query = 'SELECT * FROM tabela '.$where.' ORDER BY id DESC';
+						   $query = 'SELECT * FROM tabela '.$where.'';
 						   
 						   $rezultat = @$polaczenie->query($query);
 					
@@ -227,7 +228,7 @@
 							echo "<td>Zarobki</td>";
 							echo "<td>Marka auta</td>";
 							echo "<td>Typ silnika</td>";
-							echo "<td>Silniek</td>";
+							echo "<td>Silnik</td>";
 							echo "</tr>";
 						while($r = $rezultat->fetch_assoc()) {
 							echo "<tr>";
@@ -255,11 +256,7 @@
 					}
 						   
 						} }
-							
-							
-							
-			
-				
+
 			
 				$polaczenie->close();
 				unset($_SESSION['id']);
@@ -287,6 +284,7 @@
 	<div class="error">
 <?php
 	if(isset($_SESSION['blad']))	echo $_SESSION['blad'];
+	$_SESSION['blad'] = '';
 ?>
 </div>
 </body>

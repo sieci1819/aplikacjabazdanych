@@ -43,33 +43,57 @@
 			
 				<form action="zaloguj.php" method="post">
 				Login: <br /> <input type="text" name="login" /> <br />
+				<?php
+				if (isset($_SESSION['e_login']))
+				{
+					echo '<div class="error">'.$_SESSION['e_login'].'</div>';
+					unset($_SESSION['e_login']);
+				}
+				?>
 				Hasło: <br /> <input type="password" name="haslo" /> <br /><br />
+				<?php
+				if (isset($_SESSION['e_haslo']))
+				{
+					echo '<div class="error">'.$_SESSION['e_haslo'].'</div>';
+					unset($_SESSION['e_haslo']);
+				}
+				?>
+				<?php
+				if (isset($_SESSION['e_verify']))
+				{
+					echo '<div class="error">'.$_SESSION['e_verify'].'</div>';
+					unset($_SESSION['e_verify']);
+				}
+				?>
 				<input type="submit" value="Zaloguj się" />
+				
+					<div class="error">
+				<?php
+				if(isset($_SESSION['udanarejestracja'])&&($_SESSION['udanarejestracja']==true))
+				{
+					echo "<div align='center'; height:10px>Dziękujemy za rejestrację!</div>";
+					echo "<div align='center'; height:10px>Żeby się zalogować musisz poczekać na weryfikację konta przez administratora!</div>";	
+				}
+
+				//Usuwanie zmiennych pamiętających wartości wpisane do formularza
+				if (isset($_SESSION['fr_nick'])) unset($_SESSION['fr_nick']);
+				if (isset($_SESSION['fr_haslo1'])) unset($_SESSION['fr_haslo1']);
+				if (isset($_SESSION['fr_haslo2'])) unset($_SESSION['fr_haslo2']);
+				
+				//Usuwanie błędów rejestracji
+				if (isset($_SESSION['e_nick'])) unset($_SESSION['e_nick']);
+				if (isset($_SESSION['e_haslo'])) unset($_SESSION['e_haslo']);
+				if(isset($_SESSION['blad']))	echo $_SESSION['blad'];
+				session_unset();
+				?>
+			</div>
+				
+				
 			</div>
 			<div id="button_rej">
 				<a style="text-align: center; color:white;" href="rejestracja_form.php" id="button_rej_text; padding-bottom: 10px;">Zarejestruj się jeżeli nie masz konta!</a><br><br>
 			</div>
-			<div class="error">
-			<?php
 			
-			if(isset($_SESSION['udanarejestracja'])&&($_SESSION['udanarejestracja']==true))
-			{
-				echo "<div align='center'; height:10px>Dziękujemy za rejestrację!</div>";
-                echo "<div align='center'; height:10px>Żeby się zalogować musisz poczekać na weryfikację konta przez administratora!</div>";	
-			}
-
-			//Usuwanie zmiennych pamiętających wartości wpisane do formularza
-			if (isset($_SESSION['fr_nick'])) unset($_SESSION['fr_nick']);
-			if (isset($_SESSION['fr_haslo1'])) unset($_SESSION['fr_haslo1']);
-			if (isset($_SESSION['fr_haslo2'])) unset($_SESSION['fr_haslo2']);
-			
-			//Usuwanie błędów rejestracji
-			if (isset($_SESSION['e_nick'])) unset($_SESSION['e_nick']);
-			if (isset($_SESSION['e_haslo'])) unset($_SESSION['e_haslo']);
-			if(isset($_SESSION['blad']))	echo $_SESSION['blad'];
-			session_unset();
-			?>
-			</div>
 		</div>
 		</form>
 	</div>
