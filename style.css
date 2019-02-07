@@ -47,7 +47,7 @@ color:#2a3b58;
 	margin: 0 auto;
 }
 #main-form, #show-db-action{
-	width: 50%;
+	width: 70%;
 	height: 100%;
 	margin: 0 auto;
 	background-color: #2a3b58;
@@ -59,12 +59,12 @@ color:#2a3b58;
 
 #main-form label, input{
 	display: inline-block;
-	
 	box-sizing: border-box;
+	text-align: right;
 }
 
 #main-form input{
-	width: 60%;	
+	width: 15%;	
 }
 
 #main-form .submit, #show-db-action .submit{
@@ -75,10 +75,11 @@ color:#2a3b58;
 		background-attachment: fixed;
 		border: 1;
 		background-size: 20%;
+		text-align:center;
 	}
 	
 #main-form label{
-	width: 40%;
+	width: 15%;
 }
 
 .span-form{
